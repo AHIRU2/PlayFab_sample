@@ -12,7 +12,7 @@ public static class LoginManager　//ゲーム実行時にインスタンスが�
     /// <summary>
     /// コンストラクタ
     /// </summary>
-    private static LoginManager()
+    static LoginManager()
     {
         //TitleID設定
         PlayFabSettings.staticSettings.TitleId = "2B34F";

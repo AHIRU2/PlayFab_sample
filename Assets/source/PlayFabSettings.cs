@@ -37,7 +37,7 @@ namespace PlayFab
         public static string TitleId { get { return staticSettings.TitleId; } set { staticSettings.TitleId = value; } }
         #endregion Deprecated staticSettingsredirect properties
 
-#if !NET45 && !NETSTANDARD2_0 && !UNITY_EDITOR && !UNITY_STANDALONE
+#if !NET45 && !NETSTANDARD2_0 && !UNITY_EDITOR && !UNITY_STANDALONE || !NET_STANDARD_2_0
         private static string _localApiServer;
 #endif
 
@@ -51,7 +51,7 @@ namespace PlayFab
                 return _localApiServer;
 #endif
             }
-#if !NET45 && !NETSTANDARD2_0 && !UNITY_EDITOR && !UNITY_STANDALONE
+#if !NET45 && !NETSTANDARD2_0 && !UNITY_EDITOR && !UNITY_STANDALONE || !NET_STANDARD_2_0
             set
             {
                 _localApiServer = value;
