@@ -78,7 +78,7 @@ public static class LoginManager　//ゲーム実行時にインスタンスが�
         //ユーザーIDが取得できない場合には新規作成して匿名ログインする
         //取得できた場合には、ユーザーIDを使ってログインする
         //varの型はLoginResult型(PlayFab SDKで用意されているクラス
-        var loginResult = string.IsNullOrEmpty(userId) ? await CreateNewUserAsync() : new LoginResult();
+        var loginResult = string.IsNullOrEmpty(userId) ? await CreateNewUserAsync() : await LoadUserAsync(userId);
 
         // TODO データを自動で取得する設定にしているので、取得したデータをローカルにキャッシュする
     }
@@ -125,6 +125,43 @@ public static class LoginManager　//ゲーム実行時にインスタンスが�
 
             return response.Result;
         }
+    }
+
+
+    /// <summary>
+    /// ログインしてユーザーデータをロード
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <returns></returns>
+    private static async UniTask<LoginResult> LoadUserAsync(string userId)
+    {
+        Debug.Log("ユーザーあり。ログイン開始");
+
+        //ログインリクエストの作成
+        var request = new LoginWithCustomIDRequest
+        {
+            CustomId = userId,
+            CreateAccount = false //アカウントの上書き処理は行わないようにする
+        };
+
+        //PlayFabにログイン
+        var response = await PlayFabClientAPI.LoginWithCustomIDAsync(request);
+
+        //エラーハンドリング
+        if (response.Error != null)
+        {
+            Debug.Log("Error");
+
+            //TODO response.Errorにはエラーの種類が値として入ってる
+            //そのエラーに対応した処理をswitch文などで記述して複数んpエラーに対応できるようにする
+        }
+
+        //エラーの内容を見てハンドリングを行い、ログインに成功しているかを判定
+        var message = response.Error is null ? $"Login success! My PlayFabID os {response.Result.PlayFabId}" : response.Error.GenerateErrorReport();
+
+        Debug.Log(message);
+
+        return response.Result;
     }
 
 }
