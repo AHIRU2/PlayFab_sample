@@ -1111,7 +1111,7 @@ GameObject:
   - component: {fileID: 856259125}
   - component: {fileID: 856259124}
   m_Layer: 5
-  m_Name: Text
+  m_Name: txtPassword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1691,6 +1691,7 @@ GameObject:
   - component: {fileID: 1444771533}
   - component: {fileID: 1444771532}
   - component: {fileID: 1444771531}
+  - component: {fileID: 1444771536}
   m_Layer: 5
   m_Name: AccountCanvas
   m_TagString: Untagged
@@ -1845,6 +1846,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1444771536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444771530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bfdb44a954c8482d8018472704f633b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btnSubmit: {fileID: 2055960750}
+  btnCancel: {fileID: 1791028300}
+  emailInput: {fileID: 423570606}
+  passwordInput: {fileID: 386581786}
+  txtEmail: {fileID: 1560402361}
+  txtPassword: {fileID: 856259124}
+  responsePopUp: {fileID: 466411181}
+  btnClosePopUp: {fileID: 711303360}
+  btnEmailLogin: {fileID: 1941344422}
+  txtResponseInfo: {fileID: 984011989}
 --- !u!1 &1492454336
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,7 +2040,7 @@ GameObject:
   - component: {fileID: 1560402362}
   - component: {fileID: 1560402361}
   m_Layer: 5
-  m_Name: Text
+  m_Name: txtEmail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
