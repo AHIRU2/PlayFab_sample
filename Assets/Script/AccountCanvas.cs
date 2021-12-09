@@ -154,13 +154,13 @@ public class AccountCanvas : MonoBehaviour
     {
         //Emailでログインを試みる isLogin=trueならログイン成功
         // TODO 次の手順でLoginManagerに該当するメソッドを作成する
-        //(bool isLogin,string log)response=await LoginManager.LoginEmailAndPasswordAsync(inputValue.email,inputValue.password);
+        (bool isLogin, string log) response = await LoginManager.LoginEmailAndPasswordAsync(inputValue.email, inputValue.password);
 
         // TODO isLogin分岐
 
-        //Debug.Log(response.log);
+        Debug.Log(response.log);
 
-        //txtResponseInfo.text = response.log;
+        txtResponseInfo.text = response.log;
         responsePopUp.SetActive(true);
     }
 }
